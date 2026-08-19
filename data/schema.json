@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "domain": "ecommerce",
+  "description": "Toy e-commerce schema for the SQLGate demo. Authored vocabulary, seeded regenerable data, nothing from Hitachi.",
+  "tables": {
+    "customers": {
+      "description": "Registered customers",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "name", "type": "text"},
+        {"name": "email", "type": "text"},
+        {"name": "city", "type": "text"},
+        {"name": "country", "type": "text"},
+        {"name": "signup_date", "type": "date"}
+      ]
+    },
+    "products": {
+      "description": "Catalog products",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "name", "type": "text"},
+        {"name": "category_id", "type": "integer", "fk": "categories.id"},
+        {"name": "price", "type": "real"},
+        {"name": "stock", "type": "integer"}
+      ]
+    },
+    "categories": {
+      "description": "Product categories",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "name", "type": "text"}
+      ]
+    },
+    "orders": {
+      "description": "Customer orders",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "customer_id", "type": "integer", "fk": "customers.id"},
+        {"name": "status", "type": "text"},
+        {"name": "total_amount", "type": "real"},
+        {"name": "created_at", "type": "datetime"}
+      ]
+    },
+    "order_items": {
+      "description": "Line items within orders",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "order_id", "type": "integer", "fk": "orders.id"},
+        {"name": "product_id", "type": "integer", "fk": "products.id"},
+        {"name": "quantity", "type": "integer"},
+        {"name": "unit_price", "type": "real"}
+      ]
+    },
+    "payments": {
+      "description": "Payments against orders",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "order_id", "type": "integer", "fk": "orders.id"},
+        {"name": "method", "type": "text"},
+        {"name": "amount", "type": "real"},
+        {"name": "paid_at", "type": "datetime"}
+      ]
+    },
+    "reviews": {
+      "description": "Product reviews by customers",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "product_id", "type": "integer", "fk": "products.id"},
+        {"name": "customer_id", "type": "integer", "fk": "customers.id"},
+        {"name": "rating", "type": "integer"},
+        {"name": "comment", "type": "text"},
+        {"name": "created_at", "type": "datetime"}
+      ]
+    },
+    "inventory": {
+      "description": "Stock levels by warehouse",
+      "columns": [
+        {"name": "id", "type": "integer", "key": true},
+        {"name": "product_id", "type": "integer", "fk": "products.id"},
+        {"name": "warehouse", "type": "text"},
+        {"name": "quantity", "type": "integer"}
+      ]
+    }
+  },
+  "large_tables": ["orders", "order_items", "payments", "reviews"],
+  "execution_limits": {
+    "max_rows": 500,
+    "timeout_seconds": 3
+  }
+}

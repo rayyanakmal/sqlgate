@@ -1,0 +1,4 @@
+{"intent": "count_rows", "question": "count of orders placed in 2026", "slots": {"filters": [{"column": "created_at", "op": "year_eq", "value": 2026}], "table": "orders"}}
+{"intent": "select", "question": "show me the top 3 reviews by rating", "slots": {"limit": 3, "order_by": [{"column": "rating", "dir": "desc"}], "table": "reviews"}}
+{"intent": "count_rows", "question": "how many reviews", "slots": {"table": "reviews"}}
+{"intent": "select", "question": "list the top 10 products by price", "slots": {"limit": 10, "order_by": [{"column": "price", "dir": "desc"}], "table": "products"}}

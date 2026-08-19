@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "description": "Intent -> SQL template library. The SQL analog of the internship's template registry: proposer proposes intent+slots; the gate renders the template deterministically.",
+  "patterns": [
+    {
+      "intent": "aggregation",
+      "description": "Aggregate a numeric metric, optionally grouped",
+      "slot_spec": {
+        "table": {"type": "table", "required": true},
+        "metric": {"type": "column", "required": true},
+        "aggregate": {"type": "enum", "values": ["sum", "avg", "count", "min", "max"], "required": true},
+        "group_by": {"type": "group_by", "required": false},
+        "filters": {"type": "filters", "required": false},
+        "order_by": {"type": "order_list", "required": false},
+        "limit": {"type": "integer", "required": false}
+      },
+      "sql_template": "SELECT {aggregate}({metric}) AS result FROM {table}{filters}{group_by}{order_by}{limit}",
+      "render_rules": {
+        "filters": " WHERE {filters}",
+        "group_by": " GROUP BY {group_by}",
+        "order_by": " ORDER BY {order_by}",
+        "limit": " LIMIT {limit}"
+      }
+    },
+    {
+      "intent": "count_rows",
+      "description": "Count rows in a table, optionally filtered",
+      "slot_spec": {
+        "table": {"type": "table", "required": true},
+        "filters": {"type": "filters", "required": false}
+      },
+      "sql_template": "SELECT COUNT(*) AS result FROM {table}{filters}",
+      "render_rules": {
+        "filters": " WHERE {filters}"
+      }
+    },
+    {
+      "intent": "select",
+      "description": "Project columns, optionally filtered/ordered/limited",
+      "slot_spec": {
+        "table": {"type": "table", "required": true},
+        "columns": {"type": "column_list", "required": false},
+        "filters": {"type": "filters", "required": false},
+        "order_by": {"type": "order_list", "required": false},
+        "limit": {"type": "integer", "required": false}
+      },
+      "sql_template": "SELECT {columns} FROM {table}{filters}{order_by}{limit}",
+      "render_rules": {
+        "filters": " WHERE {filters}",
+        "order_by": " ORDER BY {order_by}",
+        "limit": " LIMIT {limit}"
+      }
+    }
+  ]
+}

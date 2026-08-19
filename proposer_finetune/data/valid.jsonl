@@ -1,0 +1,2 @@
+{"intent": "count_rows", "question": "how many customers are in hong kong", "slots": {"filters": [{"column": "country", "op": "=", "value": "hong kong"}], "table": "customers"}}
+{"intent": "aggregation", "question": "min order amount", "slots": {"aggregate": "min", "metric": "total_amount", "table": "orders"}}

@@ -1,0 +1,8 @@
+# Extra questions to grow the proposer fine-tuning dataset.
+# One question per line. Only questions the gate ACCEPTS are used (the gate
+# is the label oracle) — rejected ones are skipped automatically.
+how many payments
+average product price in 2024
+total stock by warehouse
+show me the top 5 products by rating
+how many customers signed up in 2025

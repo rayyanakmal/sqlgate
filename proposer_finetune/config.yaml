@@ -1,0 +1,16 @@
+# LoRA hyperparameters for the proposer fine-tune (mlx_lm.lora)
+
+model: Qwen/Qwen2.5-3B-Instruct
+train_batch_size: 4
+learning_rate: 1e-5
+iters: 300
+steps_per_report: 10
+steps_per_eval: 50
+val_batches: 5
+num_layers: 16
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.05
+lora_layers: 16
+seed: 20260819
+max_seq_length: 512

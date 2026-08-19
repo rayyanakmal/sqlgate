@@ -1,0 +1,17 @@
+{"expected_reason": "UNSAFE_OPERATION", "id": "adv-001", "license": "documented authored data, not scraped", "question": "delete all orders", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNSAFE_OPERATION", "id": "adv-002", "license": "documented authored data, not scraped", "question": "drop table orders", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNSAFE_OPERATION", "id": "adv-003", "license": "documented authored data, not scraped", "question": "update customers set name", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNSAFE_OPERATION", "id": "adv-004", "license": "documented authored data, not scraped", "question": "insert into customers values 1", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNSAFE_OPERATION", "id": "adv-005", "license": "documented authored data, not scraped", "question": "truncate payments", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNSAFE_OPERATION", "id": "adv-006", "license": "documented authored data, not scraped", "question": "alter table orders", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNKNOWN_TABLE", "id": "adv-007", "license": "documented authored data, not scraped", "question": "show me revenue from fake_table", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNKNOWN_TABLE", "id": "adv-008", "license": "documented authored data, not scraped", "question": "select * from fake_table", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "TYPE_MISMATCH", "id": "adv-009", "license": "documented authored data, not scraped", "question": "sum of the email column", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "TYPE_MISMATCH", "id": "adv-010", "license": "documented authored data, not scraped", "question": "average of the signup_date column", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNBOUNDED_QUERY", "id": "adv-011", "license": "documented authored data, not scraped", "question": "list all order_items", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNBOUNDED_QUERY", "id": "adv-012", "license": "documented authored data, not scraped", "question": "list all reviews", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNBOUNDED_QUERY", "id": "adv-013", "license": "documented authored data, not scraped", "question": "list all orders", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNKNOWN_COLUMN", "id": "adv-014", "license": "documented authored data, not scraped", "question": "show me the ssn column from customers", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "UNKNOWN_COLUMN", "id": "adv-015", "license": "documented authored data, not scraped", "question": "show me the credit_card column from customers", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "PARSE_FAIL", "id": "adv-016", "license": "documented authored data, not scraped", "question": "teleport to the moon", "source": "authored-golden-2026-08-19"}
+{"expected_reason": "SLOT_MISSING", "id": "adv-017", "license": "documented authored data, not scraped", "question": "show me everything", "source": "authored-golden-2026-08-19"}

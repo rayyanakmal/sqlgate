@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Streamlit secrets — never commit
+.streamlit/secrets.toml
+
+# Generated data (regenerable via scripts) — DB is built by scripts/build_db.py
+data/sample.db
+
+# MLX training artifacts
+proposer_finetune/adapters/
+proposer_finetune/fused_model/
+proposer_finetune/gguf/
+proposer_finetune/.venv/
+
+# OS
+.DS_Store
