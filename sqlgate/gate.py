@@ -13,6 +13,7 @@ from typing import Any
 import sqlglot
 from sqlglot import exp
 
+from sqlgate.db import ensure_sample_db
 from sqlgate.oracle import Oracle
 from sqlgate.patterns import PatternLibrary
 from sqlgate.proposer import Proposer, StubProposer
@@ -49,6 +50,10 @@ class Gate:
         self.schema = schema
         self.proposer: Proposer = proposer or StubProposer()
         self.patterns = PatternLibrary.load(patterns_path)
+        # The DB is a generated, gitignored artifact — build it at startup if
+        # missing (Streamlit Cloud has no committed sample.db; the seeded build
+        # is deterministic so golden result hashes stay stable).
+        ensure_sample_db(db_path)
         self.oracle = Oracle(
             db_path=db_path,
             max_rows=schema.max_rows,

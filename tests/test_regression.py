@@ -10,7 +10,7 @@ from typing import Any
 
 import pytest
 
-from scripts.build_db import build as build_db
+from sqlgate.db import build_seeded_db
 from sqlgate.gate import Gate
 from sqlgate.learning import (
     approve_pattern,
@@ -34,7 +34,7 @@ def db_path(tmp_path_factory: pytest.TempPathFactory) -> Path:
     path = tmp_path_factory.mktemp("db") / "sample.db"
     conn = sqlite3.connect(path)
     try:
-        build_db(conn)
+        build_seeded_db(conn)
     finally:
         conn.close()
     return path
