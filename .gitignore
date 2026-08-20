@@ -21,3 +21,6 @@ proposer_finetune/.venv/
 
 # OS
 .DS_Store
+
+# Agent context — never commit (local-only working agreement)
+AGENTS.md
